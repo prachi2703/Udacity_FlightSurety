@@ -14,7 +14,7 @@ To install, download or clone the repo, then:
 ## Develop Client
 Create Ganache network having 30 accounts-
 ```
-ganache-cli -m "<Mnemonic>" --gasLimit 300000000 --gasPrice 20000000000 -a 30
+ganache-cli -m "<Mnemonic>" --gasLimit 300000000 --gasPrice 20000000000 -a 35
 ```
 
 To run truffle tests:
