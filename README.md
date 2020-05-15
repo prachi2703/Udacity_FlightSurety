@@ -31,12 +31,6 @@ To view dapp:
 
 `http://localhost:8000`
 
-Front end looks like
-
-![DAPP FrontEnd](frontend.png)
-
-Transaction output
-![Transaction output](result.png)
 ## Develop Server
 
 `npm run server`
@@ -48,6 +42,22 @@ To build dapp for prod:
 `npm run dapp:prod`
 
 Deploy the contents of the ./dapp folder
+
+## How to use Dapp
+
+For a successfull transaction, follow the following steps:
+
+- Select flight and depature time, then submit the airline request to oracle.
+![Submit Airline to Oracle](images/submit2Oracle.png)
+
+- View insurance policy
+- Passenger can `buy insurance`. On the popup, enter the insurance amount(Take note not to type in the amount, but use the input field arrows to select a value)  and click `Buy Insurance` to buy insurance, then close the popup
+![Passenger buy Insurance](images/buyInsurance.png)
+- Track your flight status. This will tell you if your flight has been delayed or not
+![Track Flight](images/trackFlight.png)
+![Flight Status](images/flightStatus.png)
+- Withdraw if flight was delayed by clicking on `Payout`. A successful message is displayed if withdrawn was successful.
+![Insurance payout](images/payout.png)
 
 
 ## Resources
