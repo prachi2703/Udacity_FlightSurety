@@ -12,8 +12,10 @@ To install, download or clone the repo, then:
 `truffle compile`
 
 ## Develop Client
-Create Ganache network having 35 accounts-
-`ganache-cli -m "<Mnemonic>" --gasLimit 300000000 --gasPrice 20000000000 -a 35`
+Create Ganache network having 30 accounts-
+```
+ganache-cli -m "<Mnemonic>" --gasLimit 300000000 --gasPrice 20000000000 -a 30
+```
 
 To run truffle tests:
 
@@ -29,6 +31,12 @@ To view dapp:
 
 `http://localhost:8000`
 
+Front end looks like
+
+![DAPP FrontEnd](frontend.png)
+
+Transaction output
+![Transaction output](result.png)
 ## Develop Server
 
 `npm run server`
