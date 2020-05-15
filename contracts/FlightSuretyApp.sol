@@ -1,5 +1,8 @@
 pragma solidity ^0.4.25;
 
+// It's important to avoid vulnerabilities due to numeric overflow bugs
+// OpenZeppelin's SafeMath library, when used correctly, protects agains such bugs
+// More info: https://www.nccgroup.trust/us/about-us/newsroom-and-events/blog/2018/november/smart-contract-insecurity-bad-arithmetic/
 
 import "../node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol";
 
@@ -371,10 +374,11 @@ contract FlightSuretyApp {
 
     // Model for responses from oracles
     struct ResponseInfo {
-        address requester;                            
-        bool isOpen;                                    
-        mapping(uint8 => address[]) responses;          
-                                                                                                                
+        address requester;                              // Account that requested status
+        bool isOpen;                                    // If open, oracle responses are accepted
+        mapping(uint8 => address[]) responses;          // Mapping key is the status code reported
+                                                        // This lets us group responses and identify
+                                                        // the response that majority of the oracles
     }
 
     // Track all oracle responses
@@ -435,6 +439,10 @@ contract FlightSuretyApp {
 
 
 
+    // Called by oracle when a response is available to an outstanding request
+    // For the response to be accepted, there must be a pending request that is open
+    // and matches one of the three Indexes randomly assigned to the oracle at the
+    // time of registration (i.e. uninvited oracles are not welcome)
     function submitOracleResponse
                         (
                             uint8 index,
